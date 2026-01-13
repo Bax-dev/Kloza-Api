@@ -30,7 +30,6 @@ export const createDiscussion = async (req: Request, res: Response): Promise<voi
       return;
     }
 
-    // Create discussion
     const discussion = new Discussion({
       kollabId: kollabId,
       message: sanitizeString(discussionData.message),
@@ -40,7 +39,6 @@ export const createDiscussion = async (req: Request, res: Response): Promise<voi
 
     const savedDiscussion = await discussion.save();
 
-    // Populate the kollabId reference
     await savedDiscussion.populate('kollabId');
 
     sendCreated(res, savedDiscussion, 'Discussion created successfully');

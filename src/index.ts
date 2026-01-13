@@ -20,13 +20,11 @@ app.use(express.urlencoded({ extended: true }));
 
 connectDB();
 
-// Swagger UI
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
   customCss: '.swagger-ui .topbar { display: none }',
   customSiteTitle: 'Kloza Ideas API Documentation',
 }));
 
-// Health check endpoint at root
 app.get('/', (req, res) => {
   res.status(200).json({
     success: true,
@@ -62,9 +60,9 @@ app.use((err: Error, req: express.Request, res: express.Response, next: express.
   });
 });
 
-// Start server
 app.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
+  console.log(`Swagger is running on port http://localhost:${PORT}/swagger/`);
 });
 
 export default app;
