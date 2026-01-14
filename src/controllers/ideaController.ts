@@ -68,7 +68,6 @@ export const getIdeas = async (req: Request, res: Response): Promise<void> => {
       return;
     }
 
-    // Get total count and paginated results
     const [ideas, total] = await Promise.all([
       Idea.find().sort({ createdAt: -1 }).skip(skip).limit(limit),
       Idea.countDocuments(),
