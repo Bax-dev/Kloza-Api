@@ -118,7 +118,7 @@ NODE_ENV=development
 | `PORT` | HTTP server port | `3000` | No |
 | `NODE_ENV` | Environment mode | `development` | No |
 
-## 🏃‍♂️ Running the Application
+## Running the Application
 
 ### Development Mode
 
