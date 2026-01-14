@@ -42,7 +42,6 @@ app.get('/health', (req, res) => {
 app.use('/api', ideaRoutes);
 app.use('/api', kollabRoutes);
 
-// 404 handler
 app.use((req, res) => {
   res.status(404).json({
     success: false,
@@ -50,7 +49,6 @@ app.use((req, res) => {
   });
 });
 
-// Error handling middleware
 app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
   console.error('Error:', err);
   res.status(500).json({
